@@ -1,0 +1,95 @@
+/* Container for the hover image widget */
+.hover-image-widget {
+    position: relative;
+    display: inline-block;
+}
+
+/* Image settings */
+.hover-image-container {
+    position: relative;
+    display: block;
+}
+
+.hover-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Title text settings */
+.hover-title {
+    position: absolute;
+    top: 10px; /* Adjusts the distance from the top of the image */
+    left: 10px; /* Adjusts the distance from the left edge of the image */
+    font-size: 24px; /* Default title font size */
+    font-weight: bold; /* Default title font weight */
+    color: #ffffff; /* Default title text color (can be updated through widget settings) */
+    z-index: 10;
+}
+
+/* Underline below title with slight margin */
+.hover-title-underline {
+    width: 100%;
+    height: 2px; /* Height of the underline */
+    background-color: currentColor; /* Matches the title's color */
+    margin-top: 5px; /* Position the underline 5px below the title */
+    z-index: 9;
+}
+
+/* Hover effect - initially hidden */
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Fade in effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+/* Hover text settings */
+.hover-text {
+    color: #ffffff; /* Default hover text color */
+    font-size: 16px; /* Default hover text size */
+    font-weight: normal; /* Default hover text weight */
+    text-align: center;
+    z-index: 6;
+    max-width: 80%; /* Limits the width of the hover text */
+    text-align: center;
+}
+
+/* Link settings */
+.hover-link {
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #0073e6; /* Default button background color */
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Display overlay and text when hovered */
+.hover-image-container:hover .hover-overlay {
+    opacity: 1; /* Fade in effect */
+}
+
+/* Optional: Responsive styling (if needed) */
+@media (max-width: 768px) {
+    .hover-title {
+        font-size: 20px;
+    }
+
+    .hover-text {
+        font-size: 14px;
+    }
+
+    .hover-link {
+        font-size: 14px;
+    }
+}
