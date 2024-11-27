@@ -97,6 +97,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Text Color
         $this->add_control(
             'text_color',
             [
@@ -106,6 +107,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Title Color
         $this->add_control(
             'title_text_color',
             [
@@ -115,6 +117,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Text Size
         $this->add_control(
             'text_size',
             [
@@ -134,6 +137,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Text Weight
         $this->add_control(
             'text_weight',
             [
@@ -149,12 +153,38 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Button Color
         $this->add_control(
             'button_color',
             [
                 'label' => __( 'Button Color', 'elementor-hover-addon' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#0073e6',
+            ]
+        );
+
+        // Alignment Control
+        $this->add_control(
+            'text_alignment',
+            [
+                'label' => __( 'Text Alignment', 'elementor-hover-addon' ),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => __( 'Left', 'elementor-hover-addon' ),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __( 'Center', 'elementor-hover-addon' ),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => __( 'Right', 'elementor-hover-addon' ),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'toggle' => true,
             ]
         );
 
@@ -165,7 +195,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $image_url = $settings['image']['url'];
         $title_text = $settings['title_text'];
-        $hover_text = $settings['hover_text'];
+        $hover_text = wp_kses_post( $settings['hover_text'] );  // Clean text output
         $link_text = $settings['link_text'];
         $link_url = $settings['link_url']['url'];
         $text_color = $settings['text_color'];
@@ -173,26 +203,25 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $text_size = $settings['text_size']['size'] . $settings['text_size']['unit'];
         $text_weight = $settings['text_weight'];
         $button_color = $settings['button_color'];
+        $text_alignment = $settings['text_alignment'];
         $is_external = $settings['link_url']['is_external'] ? 'target="_blank"' : '';
 
         echo '<div class="hover-image-widget">';
         echo '<div class="hover-image-container">';
         echo '<img src="' . esc_url( $image_url ) . '" alt="" class="hover-image">';
         
-        // Title with underline
         if ( $title_text ) {
-			echo '<div class="hover-title" style="color:' . esc_attr( $title_text_color ) . ';">' . esc_html( $title_text ) . '</div>';
-			echo '<div class="hover-title-underline" style="background-color:' . esc_attr( $title_text_color ) . '; margin-top: 5px;"></div>';
-		}
+            echo '<div class="hover-title" style="color:' . esc_attr( $title_text_color ) . ';">' . esc_html( $title_text ) . '<span class="underline"></span></div>';
+        }
 
-
-        // Hover overlay
-        echo '<div class="hover-overlay">';
+        echo '<div class="hover-overlay" style="text-align:' . esc_attr( $text_alignment ) . ';">';
         echo '<div class="hover-text" style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . ';">' . $hover_text . '</div>';
+        
         if ( $link_url ) {
             echo '<a href="' . esc_url( $link_url ) . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . ';">' . esc_html( $link_text ) . '</a>';
         }
-        echo '</div>'; // Close hover overlay
+        
+        echo '</div>'; // Close overlay
         echo '</div>'; // Close image container
         echo '</div>'; // Close widget container
     }
