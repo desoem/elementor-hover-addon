@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Elementor Hover Addon
  * Description: Adds a custom widget to Elementor that shows text on image hover with motion effects.
- * Version: 1.3
- * Author: Your Name
+ * Version: 1.2
+ * Author: Ridwan Sumantri
  * Text Domain: elementor-hover-addon
  */
 
