@@ -42,6 +42,16 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        // Alt Text Control
+        $this->add_control(
+            'image_alt_text',
+            [
+                'label' => __( 'Image Alt Text', 'elementor-hover-addon' ),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __( 'Image description', 'elementor-hover-addon' ),
+            ]
+        );
+
         // Title Control
         $this->add_control(
             'title_text',
@@ -194,6 +204,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $image_url = $settings['image']['url'];
+        $image_alt_text = $settings['image_alt_text']; // Get Alt Text
         $title_text = $settings['title_text'];
         $hover_text = wp_kses_post( $settings['hover_text'] );  // Clean text output
         $link_text = $settings['link_text'];
@@ -208,17 +219,17 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
 
         echo '<div class="hover-image-widget">';
         echo '<div class="hover-image-container">';
-        echo '<img src="' . esc_url( $image_url ) . '" alt="" class="hover-image">';
+        echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $image_alt_text ) . '" class="hover-image" aria-label="' . esc_attr( $image_alt_text ) . '">';  // Image with alt text
         
         if ( $title_text ) {
-            echo '<div class="hover-title" style="color:' . esc_attr( $title_text_color ) . ';">' . esc_html( $title_text ) . '<span class="underline"></span></div>';
+            echo '<div class="hover-title" style="color:' . esc_attr( $title_text_color ) . ';" role="heading" aria-level="2">' . esc_html( $title_text ) . '<span class="underline"></span></div>';
         }
 
         echo '<div class="hover-overlay" style="text-align:' . esc_attr( $text_alignment ) . ';">';
-        echo '<div class="hover-text" style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . ';">' . $hover_text . '</div>';
+        echo '<div class="hover-text" style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . '" role="text">' . $hover_text . '</div>';
         
         if ( $link_url ) {
-            echo '<a href="' . esc_url( $link_url ) . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . ';">' . esc_html( $link_text ) . '</a>';
+            echo '<a href="' . esc_url( $link_url ) . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . '" role="button" aria-label="' . esc_attr( $link_text ) . '">' . esc_html( $link_text ) . '</a>';
         }
         
         echo '</div>'; // Close overlay
