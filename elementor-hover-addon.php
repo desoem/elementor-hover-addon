@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Elementor Hover Addon
- * Plugin URI: https://github.com/deseom
+ * Plugin URI: https://github.com/desoem/elementor-hover-addon
  * Description: Adds a custom widget to Elementor that shows text on image hover with motion effects.
  * Version: 1.3
  * Author: Ridwan Sumantri
