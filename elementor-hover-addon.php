@@ -19,7 +19,7 @@ function hover_addon_check_elementor() {
     if ( ! did_action( 'elementor/loaded' ) ) {
         add_action( 'admin_notices', function() {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__( 'Elementor Hover Addon requires Elementor to be installed and activated.', 'elementor-hover-addon' );
+            echo esc_html__( 'Elementor Hover Addon requires Elementor to be installed and activated.', 'elementor-hover-addon-main');
             echo '</p></div>';
         } );
         return;
