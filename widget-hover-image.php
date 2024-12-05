@@ -10,7 +10,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Hover Image', 'elementor-hover-addon' );
+        return __( 'Hover Image', 'elementor-hover-addon-main');
     }
 
     public function get_icon() {
@@ -25,7 +25,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Content', 'elementor-hover-addon' ),
+                'label' => __( 'Content', 'elementor-hover-addon-main');
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -34,7 +34,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'image',
             [
-                'label' => __( 'Image', 'elementor-hover-addon' ),
+                'label' => __( 'Image', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -46,9 +46,9 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'image_alt_text',
             [
-                'label' => __( 'Image Alt Text', 'elementor-hover-addon' ),
+                'label' => __( 'Image Alt Text', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Image description', 'elementor-hover-addon' ),
+                'default' => __( 'Image description', 'elementor-hover-addon-main');
             ]
         );
 
@@ -56,9 +56,9 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_text',
             [
-                'label' => __( 'Title', 'elementor-hover-addon' ),
+                'label' => __( 'Title', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Title Text', 'elementor-hover-addon' ),
+                'default' => __( 'Title Text', 'elementor-hover-addon-main');
             ]
         );
 
@@ -66,9 +66,9 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'hover_text',
             [
-                'label' => __( 'Hover Text', 'elementor-hover-addon' ),
+                'label' => __( 'Hover Text', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => __( 'Your hover text goes here.', 'elementor-hover-addon' ),
+                'default' => __( 'Your hover text goes here.', 'elementor-hover-addon-main');
             ]
         );
 
@@ -76,9 +76,9 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'link_text',
             [
-                'label' => __( 'Link Text', 'elementor-hover-addon' ),
+                'label' => __( 'Link Text', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __( 'Click Here', 'elementor-hover-addon' ),
+                'default' => __( 'Click Here', 'elementor-hover-addon-main');
             ]
         );
 
@@ -86,9 +86,9 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'link_url',
             [
-                'label' => __( 'Link URL', 'elementor-hover-addon' ),
+                'label' => __( 'Link URL', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::URL,
-                'placeholder' => __( 'https://example.com', 'elementor-hover-addon' ),
+                'placeholder' => __( 'https://example.com', 'elementor-hover-addon-main');
                 'default' => [
                     'url' => '',
                     'is_external' => true,
@@ -102,7 +102,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'text_settings',
             [
-                'label' => __( 'Text Settings', 'elementor-hover-addon' ),
+                'label' => __( 'Text Settings', 'elementor-hover-addon-main');
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -111,7 +111,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label' => __( 'Text Color', 'elementor-hover-addon' ),
+                'label' => __( 'Text Color', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ffffff',
             ]
@@ -121,7 +121,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_text_color',
             [
-                'label' => __( 'Title Color', 'elementor-hover-addon' ),
+                'label' => __( 'Title Color', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ffffff',
             ]
@@ -131,7 +131,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_size',
             [
-                'label' => __( 'Text Size', 'elementor-hover-addon' ),
+                'label' => __( 'Text Size', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'em', 'rem' ],
                 'range' => [
@@ -151,13 +151,13 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_weight',
             [
-                'label' => __( 'Text Weight', 'elementor-hover-addon' ),
+                'label' => __( 'Text Weight', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'normal' => __( 'Normal', 'elementor-hover-addon' ),
-                    'bold' => __( 'Bold', 'elementor-hover-addon' ),
-                    'bolder' => __( 'Bolder', 'elementor-hover-addon' ),
-                    'lighter' => __( 'Lighter', 'elementor-hover-addon' ),
+                    'normal' => __( 'Normal', 'elementor-hover-addon-main');
+                    'bold' => __( 'Bold', 'elementor-hover-addon-main');
+                    'bolder' => __( 'Bolder', 'elementor-hover-addon-main');
+                    'lighter' => __( 'Lighter', 'elementor-hover-addon-main');
                 ],
                 'default' => 'normal',
             ]
@@ -167,7 +167,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_color',
             [
-                'label' => __( 'Button Color', 'elementor-hover-addon' ),
+                'label' => __( 'Button Color', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#0073e6',
             ]
@@ -177,19 +177,19 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_alignment',
             [
-                'label' => __( 'Text Alignment', 'elementor-hover-addon' ),
+                'label' => __( 'Text Alignment', 'elementor-hover-addon-main');
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'elementor-hover-addon' ),
+                        'title' => __( 'Left', 'elementor-hover-addon-main');
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'elementor-hover-addon' ),
+                        'title' => __( 'Center', 'elementor-hover-addon-main');
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'elementor-hover-addon' ),
+                        'title' => __( 'Right', 'elementor-hover-addon-main');
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -229,7 +229,7 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         echo esc_html($hover_text); style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . '" role="text">' . $hover_text . '</div>';
         
         if ( $link_url ) {
-           echo esc_attr($is_external); . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . '" role="button" aria-label="' . esc_attr( $link_text ) . '">' . esc_html( $link_text ) . '</a>';
+            echo esc_attr($is_external); . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . '" role="button" aria-label="' . esc_attr( $link_text ) . '">' . esc_html( $link_text ) . '</a>';
         }
         
         echo '</div>'; // Close overlay
