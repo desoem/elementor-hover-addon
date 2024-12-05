@@ -226,10 +226,10 @@ class Hover_Image_Widget extends \Elementor\Widget_Base {
         }
 
         echo '<div class="hover-overlay" style="text-align:' . esc_attr( $text_alignment ) . ';">';
-        echo '<div class="hover-text" style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . '" role="text">' . $hover_text . '</div>';
+        echo esc_html($hover_text); style="color:' . esc_attr( $text_color ) . '; font-size:' . esc_attr( $text_size ) . '; font-weight:' . esc_attr( $text_weight ) . '" role="text">' . $hover_text . '</div>';
         
         if ( $link_url ) {
-            echo '<a href="' . esc_url( $link_url ) . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . '" role="button" aria-label="' . esc_attr( $link_text ) . '">' . esc_html( $link_text ) . '</a>';
+           echo esc_attr($is_external); . '" ' . $is_external . ' class="hover-link" style="background-color:' . esc_attr( $button_color ) . '" role="button" aria-label="' . esc_attr( $link_text ) . '">' . esc_html( $link_text ) . '</a>';
         }
         
         echo '</div>'; // Close overlay
